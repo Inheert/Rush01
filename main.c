@@ -6,7 +6,7 @@
 /*   By: tclaereb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 11:23:07 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/06/17 15:53:36 by tclaereb         ###   ########.fr       */
+/*   Updated: 2023/06/17 18:53:10 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdlib.h>
 
 void	ft_error(void);
-int	is_valid_args(char **args);
 int	is_in_range(char c, int start, int end);
 int	table_len(int *table);
 
@@ -60,11 +59,28 @@ int	args_valid(int *ptr)
 	return (1);
 }
 
+int **args_format(int *ptr, int **params)
+{
+	int	i;
+
+	i = 0;
+	while (i <= 7)
+	{
+		params[0][i] = ptr[i];
+		params[1][i] = ptr[i + 8];
+		i++;
+	}
+	return (params);
+}
+
 int	main(int nargs, char **args)
 {
 	int	*table;
-	
+	int	*params[2];
+
 	table = (int*) malloc(64);
+	params[0] = malloc((8) * 4);
+	params[1] = malloc((8) * 4);
 	if (nargs != 2)
 	{
 		ft_error();
@@ -78,5 +94,6 @@ int	main(int nargs, char **args)
 	{
 		ft_error();
 	}
+	args_format(table, params);
 	return (0);
 }

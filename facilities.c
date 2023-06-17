@@ -6,7 +6,7 @@
 /*   By: tclaereb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 11:45:45 by tclaereb          #+#    #+#             */
-/*   Updated: 2023/06/17 15:25:32 by tclaereb         ###   ########.fr       */
+/*   Updated: 2023/06/17 17:52:33 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,6 @@ void	ft_error(void)
 		ft_putchar(str[i]);
 		i++;
 	}
-}
-
-int	is_valid_args(char **args)
-{
-	int	i;
-
-	i = 0;
-	while (args[i])
-	{
-		printf("%s", args[i]);
-		i++;
-	}
-	return (1);
 }
 
 int	is_in_range(char c, int start, int end)
